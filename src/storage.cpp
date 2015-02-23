@@ -25,7 +25,6 @@
 #include "jsonstorage.h"
 #include "sortedtagsmodel.h"
 #include "taskfilterproxymodel.h"
-#include "webdavsyncer.h"
 #include "runtimeconfiguration.h"
 #include "nonemptytagfilterproxy.h"
 
@@ -464,9 +463,6 @@ bool Storage::loadingInProgress() const
 
 bool Storage::webDAVSyncSupported() const
 {
-#ifndef NO_WEBDAV
-    return true;
-#endif
     return false;
 }
 

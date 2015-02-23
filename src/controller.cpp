@@ -26,7 +26,6 @@
 #include "sortedtaskcontextmenumodel.h"
 #include "storage.h"
 #include "kernel.h"
-#include "webdavsyncer.h"
 #include "utils.h"
 #include "loadmanager.h"
 #include "flow_version.h"
@@ -840,13 +839,6 @@ void Controller::onHideEmptyTagsChanged()
 
 void Controller::updateWebDavCredentials()
 {
-#ifndef NO_WEBDAV
-    WebDAVSyncer *webdav = m_kernel->webdavSyncer();
-    webdav->setConnectionSettings(m_isHttps, m_port, m_host, m_path, m_user, m_password);
-    if (m_syncAtStartup && !webdav->syncedAtStartup()) {
-        webdav->sync();
-    }
-#endif
 }
 
 int Controller::indexOfTaskInCurrentTab(const Task::Ptr &task)
@@ -1229,11 +1221,6 @@ void Controller::removeTask(Task *task)
 
 void Controller::webDavSync()
 {
-#ifndef NO_WEBDAV
-    m_kernel->webdavSyncer()->sync();
-#else
-    qDebug() << "WebDAV sync not supported";
-#endif
 }
 
 void Controller::setTextRenderType(int textRenderType)

@@ -52,10 +52,6 @@ public:
     Settings *settings() const;
     RuntimeConfiguration runtimeConfiguration() const;
 
-#ifndef NO_WEBDAV
-    WebDAVSyncer *webdavSyncer() const;
-#endif
-
     void setupSystray();
     void destroySystray();
 
@@ -82,9 +78,6 @@ private:
     Settings *m_settings;
     Controller *m_controller;
     PluginModel *m_pluginModel;
-#ifndef NO_WEBDAV
-    WebDAVSyncer *m_webDavSyncer;
-#endif
 #if defined(QT_WIDGETS_LIB) && !defined(QT_NO_SYSTRAY)
     QSystemTrayIcon *m_systrayIcon;
     QMenu *m_trayMenu;

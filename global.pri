@@ -3,10 +3,6 @@
     error("QtQuickControls module was not found")
 }
 
-android {
-    QT += androidextras
-}
-
 win32:!mingw {
 	# Some Qt 5.4 madness going on here, link explicitly
 	LIBS += Shell32.lib
@@ -14,12 +10,9 @@ win32:!mingw {
 
 INCLUDEPATH += src
 
-ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
-
 CONFIG += c++11
 
 # Features:
-DEFINES += NO_WEBDAV # Will uncomment when UI is ready
 # DEFINES += DEVELOPER_MODE
 # DEFINES += FLOW_DEBUG_TIMESTAMPS
 

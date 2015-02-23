@@ -23,7 +23,6 @@
 #include "controller.h"
 #include "tooltipcontroller.h"
 #include "storage.h"
-#include "webdavsyncer.h"
 #include "kernel.h"
 #include "utils.h"
 #include "settings.h"

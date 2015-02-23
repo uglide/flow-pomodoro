@@ -31,7 +31,6 @@
 #include "utils.h"
 #include "checkbox.h"
 #include "loadmanager.h"
-#include "webdavsyncer.h"
 #include "quickview.h"
 #include "taskcontextmenumodel.h"
 #include "extendedtagsmodel.h"
@@ -127,9 +126,6 @@ Kernel::Kernel(const RuntimeConfiguration &config, QObject *parent)
     , m_settings(config.settings() ? config.settings() : new Settings(this))
     , m_controller(new Controller(m_qmlEngine->rootContext(), this, m_storage, m_settings, this))
     , m_pluginModel(new PluginModel(this))
-#ifndef NO_WEBDAV
-    , m_webDavSyncer(new WebDAVSyncer(this))
-#endif
 #if defined(QT_WIDGETS_LIB) && !defined(QT_NO_SYSTRAY)
     , m_systrayIcon(0)
     , m_trayMenu(0)
@@ -146,9 +142,6 @@ Kernel::Kernel(const RuntimeConfiguration &config, QObject *parent)
     qmlContext()->setContextProperty("_pluginModel", m_pluginModel);
     qmlContext()->setContextProperty("_loadManager", m_controller->loadManager());
     qmlContext()->setContextProperty("_settings", m_settings);
-#ifndef NO_WEBDAV
-    qmlContext()->setContextProperty("_webdavSync", m_webDavSyncer);
-#endif
 
     connect(m_controller, &Controller::currentTaskChanged, this, &Kernel::onTaskStatusChanged);
     connect(m_qmlEngine, &QQmlEngine::quit, qGuiApp, &QGuiApplication::quit);
@@ -197,13 +190,6 @@ RuntimeConfiguration Kernel::runtimeConfiguration() const
 {
     return m_runtimeConfiguration;
 }
-
-#ifndef NO_WEBDAV
-WebDAVSyncer *Kernel::webdavSyncer() const
-{
-    return m_webDavSyncer;
-}
-#endif
 
 void Kernel::notifyPlugins(TaskStatus newStatus)
 {
