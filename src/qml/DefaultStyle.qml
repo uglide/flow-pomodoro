@@ -2,17 +2,17 @@ import QtQuick 2.0
 
 Item {
     // Main Window:
-    property string backgroundColor    : "black"
-    property int borderRadius          : Math.ceil(8 * _controller.dpiFactor)
-    property string borderColor        : "gray"
+    property string backgroundColor    : "#433F3F"
+    property int borderRadius          : 0
+    property string borderColor        : "#221F1F"
     property int borderWidth           : 1 * _controller.dpiFactor
-    property color fontColor           : Qt.rgba(0.9, 0.9, 0.5, 1)
-    property int fontSize              : 29 * _controller.dpiFactor
-    property int currentTaskFontSize   : 23 * _controller.dpiFactor
+    property color fontColor           : Qt.rgba(255, 255, 255, 1)
+    property int fontSize              : 20 * _controller.dpiFactor
+    property int currentTaskFontSize   : 20 * _controller.dpiFactor
 
     property int clickHereFontSize     : 11 * _controller.dpiFactor
     property string clickHereFontColor : "lightsteelblue"
-    property int remainingFontSize     : 23 * _controller.dpiFactor
+    property int remainingFontSize     : 20 * _controller.dpiFactor
     property int taskHeight            : 50 * _controller.dpiFactor
 
     property int expandedWidth         : 400 * _controller.dpiFactor
@@ -67,14 +67,14 @@ Item {
     property int tagTabHeight: 30 * _controller.dpiFactor
     property int tagTabWidth: 65 * _controller.dpiFactor
 
-    property int queueRadius            : Math.ceil(5 * _controller.dpiFactor)
+    property int queueRadius            : 0
     property string taskBackgroundColor : "black"
     property string taskBorderColor     : "gray"
-    property int taskBorderRadius       : Math.ceil(5 * _controller.dpiFactor)
+    property int taskBorderRadius       : 0
 
     property string taskFontColor       : "white"
     property int taskFontSize           : 14 * _controller.dpiFactor
-    property color queueBackgroundColor : Qt.rgba(0.9, 0.9, 0.5, 1)
+    property color queueBackgroundColor : "lightgrey"
 
     property bool deleteAnimationEnabled : true
     property int deleteAnimationDuration : 300
@@ -86,7 +86,7 @@ Item {
     property int buttonsSpacing : Math.ceil(10 * _controller.dpiFactor)
 
     property int pageMargin : Math.ceil(10 * _controller.dpiFactor)
-    property int titleFontSize : 24 * _controller.dpiFactor
+    property int titleFontSize : 20 * _controller.dpiFactor
     property string titleColor : "black"
     property int regularTextSize : 14 * _controller.dpiFactor
     property string regularTextColor : "black"
@@ -107,7 +107,7 @@ Item {
     property color menuBarButtonPressedColor: "#4C4C4C"
     property color menuBarDotColor: "#919191"
     property int menuBarHeight: 50 * _controller.dpiFactor
-    property int menuBarFontSize: 23 * _controller.dpiFactor
+    property int menuBarFontSize: 20 * _controller.dpiFactor
     property int menuBarButtonWidth: 50 * _controller.dpiFactor
     property int menuBarButtonDotWidth: 5 * _controller.dpiFactor
     property int menuBarButtonDotSpacing: 5 * _controller.dpiFactor
